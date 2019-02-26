@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <% include ../partials/ldOut %>
+  </head>
+  <body class="slds">
+    <header>
+    </header>
+    <main>
+      <div >
+        <p>Account Activity On Heroku</p>
+        <div id="leaderboard"></div>
+          </div>
+      </main>
+        <footer>
+        </footer>
+        <script>
+          var url = "<%= ouathLightningURL %>";
+          var token = "Bearer "+"<%= oauthtoken %>";
+          console.log(token);
+            $Lightning.use("c:LightningOutTestApp", function() {
+                  $Lightning.createComponent("c:LightningOutTestComp", {},
+                     "leaderboard",
+                      function(cmp) {
+                         // do some stuff
+                      });
+            },url,token );
+        </script>
+  </body>
+</html>
